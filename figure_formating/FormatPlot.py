@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import math
 
 class FormatPlot:
 	""" FormatPlot class to create well-formatted, well labeled visualizations
@@ -12,16 +13,18 @@ class FormatPlot:
 		x = []
 		y = []
 
-	def read_data_file(self, file_name1, file_name2):
+	def read_data_file(file_name1, file_name2):
 
 		"""Function to read in data from a txt file. The txt file should have
 		one number (float) per line. The numbers are stored in the data attribute.
 
 		Args:
-			file_name (string): name of a file to read from
+			file_name1 (string): name of a file1 to read from
+			file_name2 (string): name of a file2 to read from
 
 		Returns:
-			None
+			x, data read from file_name1
+			y, data read from file_name2
 
 		"""
 
@@ -68,7 +71,8 @@ class FormatPlot:
 		"""Function to calculate the standard deviation of the data set.
 
 		Args:
-			None
+			x, numpy 1d array
+			y, function of x
 
 		Returns:
 			None
@@ -94,12 +98,13 @@ class FormatPlot:
 		matplotlib pyplot library.
 
 		Args:
-			None
+			x, numpy 1d array
 
 		Returns:
 			None
 		"""
-		plt.hist(x)
+		plt.figure(figsize = (7,4))
+		plt.hist(x, bins = round(len(x)/10), color = 'blue')
 		plt.title('Histogram of Data', fontsize=14)
 		plt.xlabel('data', fontsize=12)
 		plt.ylabel('count', fontsize=12)
@@ -111,23 +116,24 @@ class FormatPlot:
 		# reformat()
 
 
-	def bar(x,y):
-		"""Function to output a reformatted bar plot of the instance variable data using
-		matplotlib pyplot library.
-
-		Args:
-			None
-
-		Returns:
-			None
-		"""
-		plt.bar(x,y)
-		plt.title('Histogram of Data', fontsize=14)
-		plt.xlabel('data', fontsize=12)
-		plt.ylabel('count', fontsize=12)
-		plt.xticks(fontsize=10)
-		plt.yticks(fontsize=10)
-		plt.box(True)
-		plt.grid(True)
-		plt.show()
-		# reformat()
+	# def bar(x,y):
+	# 	"""Function to output a reformatted bar plot of the instance variable data using
+	# 	matplotlib pyplot library.
+	#
+	# 	Args:
+	# 		None
+	#
+	# 	Returns:
+	# 		None
+	# 	"""
+	# 	frequency = len(x)
+	# 	plt.bar(x,y)
+	# 	plt.title('Histogram of Data', fontsize=14)
+	# 	plt.xlabel('data', fontsize=12)
+	# 	plt.ylabel('count', fontsize=12)
+	# 	plt.xticks(fontsize=10)
+	# 	plt.yticks(fontsize=10)
+	# 	plt.box(True)
+	# 	plt.grid(True)
+	# 	plt.show()
+	# 	# reformat()
