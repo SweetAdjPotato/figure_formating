@@ -1,12 +1,10 @@
 
 import numpy as np
-from FormatPlot import FormatPlot
+from FormatPlot import FormatPlot as fp
+
 x = np.arange(0, 10, 0.1)
 y = np.sin(x)
-FormatPlot.plot(x,y)
+fp.plot(x,y)
 
 x1 = np.random.rand(100,1)
-FormatPlot.hist(x1)
-
-
-FormatPlot.bar(x,y)
+fp.hist(x1)
